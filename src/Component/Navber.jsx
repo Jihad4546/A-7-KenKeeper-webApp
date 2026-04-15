@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 import { CiHome } from 'react-icons/ci';
 import { ImStatsDots } from 'react-icons/im';
-import { IoIosAdd } from 'react-icons/io';
 import { MdOutlineAccessTime } from 'react-icons/md';
 
 const Navbar = () => {
@@ -18,17 +17,12 @@ const Navbar = () => {
                 </Link>
             </li>
             <li>
-                <Link href="/Timeline" className={`flex items-center gap-2 py-2 ${pathname === '/Timeline' ? 'bg-[#244D3F] text-white' : 'text-gray-500'}`}>
+                <Link href="/timeline" className={`flex items-center gap-2 py-2 ${pathname === '/timeline' ? 'bg-[#244D3F] text-white' : 'text-gray-500'}`}>
                     <MdOutlineAccessTime className="text-xl" />
                     <span >Timeline</span>
                 </Link>
             </li>
-            <li>
-                <Link href="/Card" className={`flex items-center gap-2 py-2 ${pathname === '/Card' ? 'bg-[#244D3F] text-white' : 'text-gray-500'}`}>
-                    <ImStatsDots className="text-lg" />
-                    <span>Card</span>
-                </Link>
-            </li>
+           
             <li>
                 <Link href="/stats" className={`flex items-center gap-2 py-2 ${pathname === '/stats' ? 'bg-[#244D3F] text-white' : 'text-gray-500'}`}>
                     <ImStatsDots className="text-lg" />
@@ -59,49 +53,14 @@ const Navbar = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow border border-base-200">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow border border-base-200">
                             {navLinks}
                         </ul>
                     </div>
                 </div>
 
             </div>
-            {/* <div className='text-center mt-20 space-y-6'>
-                <h1 className='text-5xl'>Friends to keep close in your life</h1>
-                <p className='text-gray-500'>Your personal shelf of meaningful connections. <br />Browse, tend, and nurture the
-                    relationships that matter most.</p>
-                <button className='btn bg-[#244D3F] text-white'>
-                    <IoIosAdd size={30} />
-                    Add a Friend</button>
             </div>
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-5 mt-10'>
-                <div className="card shadow ">
-                    <div className="card-body text-center">
-                        <h2 className="text-3xl font-semibold">10</h2>
-                        <p className='text-lg text-gray-400'>Total Friends</p>
-                    </div>
-                </div>
-                <div className="card shadow ">
-                    <div className="card-body text-center">
-                        <h2 className="text-3xl font-semibold">3</h2>
-                        <p className='text-lg text-gray-400'>On Track</p>
-                    </div>
-                </div>
-                <div className="card shadow ">
-                    <div className="card-body text-center">
-                        <h2 className="text-3xl font-semibold">6</h2>
-                        <p className='text-lg text-gray-400'>Need Attention</p>
-                    </div>
-                </div>
-                <div className="card shadow ">
-                    <div className="card-body text-center">
-                        <h2 className="text-3xl font-semibold">12</h2>
-                        <p className='text-lg text-gray-400'>Interactions This Month</p>
-                    </div>
-                </div>
-            </div> */}
-          
-        </div>
     );
 };
 

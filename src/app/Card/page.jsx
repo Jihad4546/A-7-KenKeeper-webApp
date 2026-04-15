@@ -8,8 +8,8 @@ const CardPage = async () => {
     return (
         <div className='container mx-auto grid grid-cols-2 md:grid-cols-4 gap-5 '>
             {
-                data.map(a => <Link href={`/Card/${a.id}`}>
-                <div onClick={''} key={a.id} className='shadow text-center space-y-2 p-10'>
+                data.map((a) => <Link key={a.id} href={`/Card/${a.id}`}>
+                <div  className='shadow text-center space-y-2 p-10'>
                     <img className='w-24 h-24 mx-auto rounded-full' src={a.picture} alt={a.name} />
                     <h1>{a.name}</h1>
                     <p>{a.days_since_contact}d ago</p>

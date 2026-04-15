@@ -122,10 +122,10 @@ const handleAction = (type) => {
                    
                     <div 
                      onClick={() => handleAction("call")}
-                    className="card shadow lg:h-20 flex items-center justify-center">
-                        <div className="card-body text-center p-3">
+                    className="bg-gray-200 carou  card shadow lg:h-20 flex items-center justify-center">
+                        <div className="card-body text-center ">
                             <MdWifiCalling2 size={40}/>
-                            <p className="text-xs md:text-sm text-gray-900">
+                            <p className="text-xs md:text-xl  text-gray-900">
                                 Call
                             </p>
                         </div>

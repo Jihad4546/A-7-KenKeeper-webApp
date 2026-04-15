@@ -6,23 +6,39 @@ import { MdWifiCalling2 } from 'react-icons/md';
 
 const Timeline = () => {
     const [timeline, setTimeline] = useState([]);
+    const [filter , setFilter] = useState ('all');
+
 
     useEffect(() => {
         const storedData = JSON.parse(localStorage.getItem("timeline")) || [];
         setTimeline(storedData);
     }, []);
+
+    const filterTimeline = 
+    filter==='all'?
+    timeline:
+    timeline.filter(item=> item.type === filter)
+  
     return (
         <div>
-            (
+            
             <div className="p-5 container mx-auto">
                 <h1 className="text-2xl font-bold mb-4">Timeline</h1>
-                    
+                <select 
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                className='w-44 border border-gray-300 p-2 rounded-xl'>
+                    <option value="all">Filter Timeline</option>
+                    <option value="call">Call</option>
+                    <option value="text">Text</option>
+                    <option value="video">Video</option>
+                </select>
                 {
-                    timeline.length === 0 ? (
-                        <p>No data found</p>
+                    filterTimeline.length === 0 ? (
+                        <p className='flex items-center justify-center h-screen bg-gray-300 rounded-xl'>No data found</p>
                     ) : (
-                        timeline.map((item, index) => (
-                            <div key={index} className="shadow p-3 mb-3 rounded flex items-center gap-5  ">
+                        filterTimeline.map((item, index) => (
+                            <div key={index} className="shadow p-3 mb-3 mt-3 rounded flex items-center gap-5  ">
                                 <div>
 
                                     <h2 className="font-semibold">
@@ -32,19 +48,19 @@ const Timeline = () => {
                                                     item.type === "video" ? <FaVideo size={40} /> :
                                                         null
                                         }
-                                      </h2>
+                                    </h2>
                                 </div>
-                               <div>
-                                <span className='text-2xl'>  {item.type} </span><span className='text-gray-500'>With</span><span className='text-gray-500'>{item.name}</span>
-                                <p>Date: {item.date}</p>
-                               </div>
+                                <div>
+                                    <span className='text-2xl'>  {item.type} </span><span className='text-gray-500'>With</span><span className='text-gray-500'>{item.name}</span>
+                                    <p>Date: {item.date}</p>
+                                </div>
                             </div>
                         ))
                     )
                 }
 
             </div>
-            );
+            ;
 
         </div>
     );
