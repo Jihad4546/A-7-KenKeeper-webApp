@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import React from 'react';
-import data from "@/data/data.json";
+
+
 
 const CardPage = async () => {
+ const res = await fetch('http://localhost:3000/data.json')
+ const data = await res.json()
+ console.log(data)
  
-
+    
     return (
         <div className='container mx-auto grid grid-cols-2 md:grid-cols-4 gap-5 '>
             {
