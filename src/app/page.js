@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { IoIosAdd } from "react-icons/io";
 import CardPage from "./Card/page";
 import { Suspense } from "react";
+import data from '../Data/data.json'
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-10">
         <div className="card shadow ">
           <div className="card-body text-center">
-            <h2 className="text-3xl font-semibold">10</h2>
+            <h2 className="text-3xl font-semibold">{data.length}</h2>
             <p className="text-lg text-gray-400">Total Friends</p>
           </div>
         </div>
